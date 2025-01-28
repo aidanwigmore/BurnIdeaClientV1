@@ -17,8 +17,6 @@ import Text from '@materials/Text';
 import CustomInput from '@materials/CustomInput';
 import FormButtonGroup from '@materials/FormButtonGroup';
 
-// import RichTextEditor from '@materials/RichTextEditor';
-
 import customTheme from '../theme';
 
 import Category from '../types/Category';
@@ -72,10 +70,10 @@ function CategoryForm({ category, ideas, handleResetCategory, handleCancel }: Ca
         }));
     };
 
-    const handleDescriptionChange = (value: string) => {
+    const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setNewCategory(prevCategory => ({
             ...prevCategory,
-            categoryDescription: value
+            categoryDescription: event.target.value
         }));
     };
 
@@ -180,9 +178,7 @@ function CategoryForm({ category, ideas, handleResetCategory, handleCancel }: Ca
                     }}
                 >
                     <>
-                        <Text size={Size.medium} text={"Description"}/>
-                        {/* <RichTextEditor value={newCategory.categoryDescription || (category?.categoryDescription || '')} onChange={handleDescriptionChange}
-                        /> */}
+                        <CustomInput label={"Description"} value={newCategory.categoryDescription || (category?.categoryDescription || '')} onChange={handleDescriptionChange} error={""} />
                     </>
                 </Box>
             </Box>

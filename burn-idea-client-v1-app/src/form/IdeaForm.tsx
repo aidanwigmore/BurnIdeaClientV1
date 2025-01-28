@@ -9,7 +9,6 @@ import Edit from '@mui/icons-material/Edit';
 import Save from '@mui/icons-material/CheckOutlined';
 
 import Text from '@materials/Text';
-// import RichTextEditor from '@materials/RichTextEditor';
 import CustomInput from '@materials/CustomInput';
 import FormButtonGroup from '@materials/FormButtonGroup';
 import Switch from '@mui/material/Switch';
@@ -91,10 +90,10 @@ function IdeaForm({ idea, handleResetIdea, handleCancel }: IdeaFormProps) {
         }
     };
 
-    const handleDescriptionChange = (value: string) => {
+    const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setNewIdea(prevIdea => ({
             ...prevIdea,
-            ideaDescription: value
+            ideaDescription: event.target.value
         }));
     };
 
@@ -172,9 +171,7 @@ function IdeaForm({ idea, handleResetIdea, handleCancel }: IdeaFormProps) {
                     }}
                 >
                     <>
-                        <Text size={Size.medium} text={"Description"}/>
-                        {/* <RichTextEditor value={newIdea.ideaDescription || (idea?.ideaDescription || '')} onChange={handleDescriptionChange}
-                        /> */}
+                        <CustomInput label={"Description"} value={newIdea.ideaDescription || (idea?.ideaDescription || '')} onChange={handleDescriptionChange} error={""} />
                     </>
                 </Box>
             </Box>

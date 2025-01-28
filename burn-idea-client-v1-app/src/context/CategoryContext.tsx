@@ -33,7 +33,7 @@ export const CategoryProvider: React.FC<CategoryProviderProps> = ({ children }) 
   const createCategory = async (newCategory: Partial<Category>) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post(`${process.env.REACT_APP_API_BASE}/api/categotries/`, newCategory, {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE}/api/categories/`, newCategory, {
         headers: {
           'Authorization': `Token ${token}`
         }

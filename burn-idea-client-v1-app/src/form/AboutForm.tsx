@@ -10,7 +10,7 @@ import Save from '@mui/icons-material/CheckOutlined';
 import Switch from '@mui/material/Switch';
 
 import Text from '@materials/Text';
-// import RichTextEditor from '@materials/RichTextEditor';
+import CustomInput from '@materials/CustomInput';
 import FormButtonGroup from '@materials/FormButtonGroup';
  
 import customTheme from '../theme';
@@ -55,10 +55,10 @@ function AboutForm({ about, handleResetAbout, handleCancel }: AboutFormProps) {
         setEdit(!edit);
     }, [setEdit, edit]);
 
-    const handleContentChange = (value: string) => {
+    const handleContentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setNewAbout(prevAbout => ({
             ...prevAbout,
-            content: value
+            content: event.target.value
         }));
     };
 
@@ -124,8 +124,7 @@ function AboutForm({ about, handleResetAbout, handleCancel }: AboutFormProps) {
                     marginBottom: '12px',
                 }}
             >
-                <Text size={Size.medium} text={"Content"}/>
-                {/* <RichTextEditor value={newAbout.content || (about?.content || '')} onChange={handleContentChange}/> */}
+                        <CustomInput label={"Content"} value={newAbout.content || (about?.content || '')} onChange={handleContentChange} error={""} />
             </Box>
             <Box
                 sx={{

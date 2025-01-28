@@ -9,7 +9,7 @@ import Edit from '@mui/icons-material/Edit';
 import Save from '@mui/icons-material/CheckOutlined';
 
 import Text from '@materials/Text';
-// import RichTextEditor from '@materials/RichTextEditor';
+import CustomInput from '@materials/CustomInput';
 import FormButtonGroup from '@materials/FormButtonGroup';
 
 import customTheme from '../theme';
@@ -61,10 +61,10 @@ function FaqForm({ faq, handleResetFaq, handleCancel }: FaqFormProps) {
         }));
     };
 
-    const handleAnswerChange = (value: string) => {
+    const handleAnswerChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setNewFaq(prevFaq => ({
             ...prevFaq,
-            answer: value
+            answer: event.target.value
         }));
     };
 
@@ -138,8 +138,7 @@ function FaqForm({ faq, handleResetFaq, handleCancel }: FaqFormProps) {
                     marginRight: 'auto',
                 }}
             >
-                <Text size={Size.medium} text={"Answer"}/>
-                {/* <RichTextEditor value={newFaq.answer || (faq?.answer || '')} onChange={handleAnswerChange}/> */}
+                <CustomInput label={"Content"} value={newFaq.answer || (newFaq.answer)} onChange={handleAnswerChange} error={""} />
             </Box>
             <Box
                 sx={{
