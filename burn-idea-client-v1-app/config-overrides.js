@@ -4,6 +4,7 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = override(
     addWebpackAlias({
+        '@context': path.resolve(__dirname, 'src/context'),
         '@theme': path.resolve(__dirname, 'src/theme'),
     }),
     (config) => {

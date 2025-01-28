@@ -4,7 +4,11 @@ import React from 'react';
 import './App.css';
 
 import { ThemeProvider } from '@mui/material/styles';
-
+import { AuthProvider } from '@context/AuthContext';
+import { IdeaProvider } from '@context/IdeaContext';
+import { CategoryProvider } from '@context/CategoryContext';
+import { AboutProvider } from '@context/AboutContext';
+import { FaqProvider } from '@context/FAQContext';
 // import AdminHomePage from '@pages/AdminHomePage';
 // import CustomerHomePage from '@pages/CustomerHomePage';
 // import CustomerCategoryPage from '@pages/CustomerCategoryPage';
