@@ -3,8 +3,44 @@
     "baseUrl": "./src",
     "target": "es5",
     "paths": {
+      "@adminModals/*": [
+        "adminModals/*"
+      ],
+      "@category/*": [
+        "category/*"
+      ],
+      "@customerModals/*": [
+        "customerModals/*"
+      ],
+      "@form/*": [
+        "form/*"
+      ],
+      "@header/*": [
+        "header/*"
+      ],
+      "@layout/*": [
+        "layout/*"
+      ],
+      "@adminLayout/*": [
+        "adminLayout/*"
+      ],
+      "@materials/*": [
+        "materials/*"
+      ],
+      "@pages/*": [
+        "Pages/*"
+      ],
+      "@idea/*": [
+        "idea/*"
+      ],
+      "@content/*": [
+        "content/*"
+      ],
       "@context/*": [
         "context/*"
+      ],
+      "@filters/*": [
+        "filters/*"
       ],
     },
     "lib": [
