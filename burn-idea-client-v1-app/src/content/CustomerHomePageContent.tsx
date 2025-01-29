@@ -25,12 +25,11 @@ function CustomerHomePageContent({ ideas, categories, showDescription }: Custome
                 backgroundColor: customTheme.palette.secondary.main,
                 borderRadius: '15px',
                 gap: '12px',
-                marginRight: 'auto',
                 overflow: 'hidden',
                 flexWrap: 'wrap',
             }}>
                 {categories && categories.map((category, index) => (
-                    <Box key={index} sx={{ padding: '12px', marginLeft: 'auto', marginRight: 'auto', width: '100%' }}>
+                    <Box key={index} sx={{ marginLeft: 'auto', marginRight: 'auto', width: '100%' }}>
                         <Box key={`category-box-${index}`} sx={{ marginLeft: 'auto', marginRight: 'auto', width: '100%' }}>
                             {category.ideas && category.id &&
                                 <CategoryColumn key={`category-column-${category.id}`} id={category.id} category={category} name={category.name} ideas={ideas} renderHeader={true} renderDescription={showDescription}/>

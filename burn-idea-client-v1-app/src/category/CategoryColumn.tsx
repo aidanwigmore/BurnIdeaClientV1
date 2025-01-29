@@ -24,7 +24,7 @@ interface CategoryColumnProps {
 
 function CategoryColumn({ renderDescription, renderHeader, id, name, ideas, category, categoryPage }: CategoryColumnProps) {
     return (
-        <Box key={`category-column-outer-box-${id}`} sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+        <Box key={`category-column-outer-box-${id}`} sx={{ display: 'flex', flexDirection: 'column' }}>
             <>
                 {renderHeader === true && (
                     <Tooltip title="Navigate to Category page?" arrow>
@@ -33,8 +33,8 @@ function CategoryColumn({ renderDescription, renderHeader, id, name, ideas, cate
                 )}
                 {renderDescription === true && (
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px', backgroundColor: customTheme.palette.secondary.main, borderRadius: '15px', marginBottom: '12px', marginLeft: 'auto', marginRight: 'auto' }}>
-                        <Box sx={{ display: 'flex', flexDirection: 'row', width: '100%', backgroundColor: customTheme.palette.secondary.main, borderRadius: '15px', gap: '12px', marginRight: 'auto', overflow: 'hidden', flexWrap: 'wrap', marginLeft: 'auto' }}>
-                            <Box sx={{ padding: '12px', marginLeft: 'auto', marginRight: 'auto' }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'row', backgroundColor: customTheme.palette.secondary.main, borderRadius: '15px', marginRight: 'auto', overflow: 'hidden', flexWrap: 'wrap', marginLeft: 'auto' }}>
+                            <Box sx={{ marginLeft: 'auto', marginRight: 'auto' }}>
                                 <div style={{color: 'white'}} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(category?.categoryDescription || '') }} />
                             </Box>
                         </Box>
@@ -58,7 +58,7 @@ function CategoryColumn({ renderDescription, renderHeader, id, name, ideas, cate
                             })}
                         </Box>
                     ) : (
-                        <Box sx={{width: {sm: '100%', xs: '90%'}}} >
+                        <Box>
                             {ideas && ideas.map((idea) => {
                                 if (idea.id !== undefined) {
                                     const ideaId = parseInt(idea.id, 10);

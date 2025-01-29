@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 import Button from '@mui/material/Button';
 
+import Text from '@materials/Text';
+
 import customTheme from '../theme';
 
 import Category from '../types/Category';
@@ -27,11 +29,7 @@ const CategoryButton = React.forwardRef<HTMLButtonElement, CategoryButtonProps>(
             ref={ref}
             variant="contained"
             sx={{
-                width: '50%',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                marginTop: '12px',
-                marginBottom: '12px',
+                width: '100%',
                 borderRadius: "15px",
                 boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
                 color: customTheme.palette.custom.black,
@@ -41,7 +39,7 @@ const CategoryButton = React.forwardRef<HTMLButtonElement, CategoryButtonProps>(
             }}
             onClick={() => {}}
         >
-            {text}
+            <Text text={text}/>
         </Button>
     )
 });
