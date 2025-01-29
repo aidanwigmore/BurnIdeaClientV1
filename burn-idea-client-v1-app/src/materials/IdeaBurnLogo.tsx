@@ -16,7 +16,7 @@ function IdeaBurnLogo({ admin }: IdeaBurnLogoProps) {
         <Box
             sx={{display: 'inline-flex', alignItems: 'center'}}
         >
-            <img src="/logo.png" alt="IdeaBurn Logo" style={{width: '50px', height: '50px'}} />
+            <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="IdeaBurn Logo" style={{width: '50px', height: '50px'}} />            
             <Text 
                 size={Size.large}
                 text={
