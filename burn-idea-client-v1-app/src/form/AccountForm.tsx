@@ -53,7 +53,7 @@ function AccountForm({ handleNavigation }: AccountFormProps) {
 
     useEffect(() => {
         fetchCustomerDetails();
-      }, [fetchCustomerDetails]);
+      }, []);
 
       const handleUpdate = async () => {
         try {
