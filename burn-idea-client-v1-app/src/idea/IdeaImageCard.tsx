@@ -130,10 +130,24 @@ function IdeaImageCard({ idea, category, renderDescription }: IdeaImageCardProps
                 >
                     <Text sx={{textAlign: 'center'}} size={Size.large} text={idea?.name ?? 'Idea Name'}/>
                 </Box>
+                {renderDescription && renderDescription === true && (
+                    <Box
+                        sx={{
+                            display: 'inline-flex',
+                            flexDirection: 'row',
+                            width: '99%',
+                            justifyContent: 'space-around',
+                            alignItems: 'center',
+                            padding: '12px',
+                        }}
+                    >
+                        <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
+                    </Box>
+                )}
                 <Box
                     sx={{
                         display: 'inline-flex',
-                        flexDirection: 'row',
+                        flexDirection: { xs: 'column', sm: 'row' },
                         width: '99%',
                         justifyContent: 'space-between',
                         alignItems: 'center',
@@ -155,20 +169,6 @@ function IdeaImageCard({ idea, category, renderDescription }: IdeaImageCardProps
                 <Tooltip title="Navigate to Idea page?" arrow>
                     <IdeaImageCardButton handleClick={handleClick} idea={idea} category={category} />
                 </Tooltip>
-                {renderDescription && renderDescription === true && (
-                    <Box
-                        sx={{
-                            display: 'inline-flex',
-                            flexDirection: 'row',
-                            width: '99%',
-                            justifyContent: 'space-around',
-                            alignItems: 'center',
-                            padding: '12px',
-                        }}
-                    >
-                        <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
-                    </Box>
-                )}
             </Box>
             <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
                 <Alert onClose={handleSnackbarClose} severity={severity}>

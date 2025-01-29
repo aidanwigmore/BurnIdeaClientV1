@@ -54,10 +54,10 @@ function FaqForm({ faq, handleResetFaq, handleCancel }: FaqFormProps) {
         setEdit(!edit);
     }, [setEdit, edit]);
 
-    const handleQuestionChange = (value: string) => {
+    const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setNewFaq(prevFaq => ({
             ...prevFaq,
-            question: value
+            question: event.target.value
         }));
     };
 
@@ -125,8 +125,7 @@ function FaqForm({ faq, handleResetFaq, handleCancel }: FaqFormProps) {
                     marginBottom: '12px',
                 }}
             >
-                <Text size={Size.medium} text={"Question"}/>
-                {/* <RichTextEditor value={newFaq.question || (faq?.question || '')} onChange={handleQuestionChange}/> */}
+                <CustomInput label={"Question"} value={newFaq.question || (newFaq.question)} onChange={handleQuestionChange} error={""} />
             </Box>
             <Box
                 sx={{
