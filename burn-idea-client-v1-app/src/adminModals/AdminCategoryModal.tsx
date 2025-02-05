@@ -77,7 +77,7 @@ function AdminCategoryModal({ category, ideas, setCategory, categories, handleRe
                     color="success"
                     sx={{ margin: '5px' }}
                 >
-                    Edit
+                    <Text text={"Edit"} size={Size.small}/>
                 </Button>
                 <Button
                     onClick={() => handleDelete(category)}
@@ -85,7 +85,7 @@ function AdminCategoryModal({ category, ideas, setCategory, categories, handleRe
                     color="error"
                     sx={{ margin: '5px' }}
                 >
-                    Delete
+                    <Text text={"Delete"} size={Size.small}/>
                 </Button>
             </Box>
         ),
@@ -108,7 +108,7 @@ function AdminCategoryModal({ category, ideas, setCategory, categories, handleRe
                 <>
                     <Divider />
                     <Box sx={{ width: '100%', textAlign: 'center' }}>
-                        <Text text={selectedCategory?.id ? `Edit Category ${selectedCategory.id}` : 'Create Category'} />
+                        <Text text={selectedCategory?.id ? `Edit Category '${selectedCategory.id}':` : 'Create Category:'} size={Size.large}/>
                     </Box>
                     <Box>
                         <CategoryForm
@@ -121,7 +121,7 @@ function AdminCategoryModal({ category, ideas, setCategory, categories, handleRe
                 </>
             ) : (
                 <Button sx={{ marginLeft: '12px' }} color="success" variant="contained" onClick={() => setNewCategory({ name: '', visible: false, categoryDescription: '', ideas: [], color: '' })}>
-                    Create Category
+                    <Text text={"New Category"} size={Size.small}/>
                 </Button>
             )}
             <Box sx={{ width: '100%', textAlign: 'center', marginTop: '24px' }}>

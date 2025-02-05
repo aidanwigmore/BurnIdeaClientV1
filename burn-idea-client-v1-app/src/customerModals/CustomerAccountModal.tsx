@@ -9,6 +9,8 @@ import AccountForm from '@form/AccountForm';
 
 import Text from '@materials/Text';
 
+import { Size } from '../types/Size';
+
 interface CustomerAccountModalProps {
     handleNavigation: (url: string | undefined) => void;
 }
@@ -33,7 +35,7 @@ function CustomerAccountModal({ handleNavigation }: CustomerAccountModalProps) {
             }}
         >
             <Box sx={{ width: '100%', textAlign: 'center' }}>
-                <Text text={"Account Details"} />
+                <Text text={"Account Details"} size={Size.large}/>
             </Box>
             <AccountForm handleNavigation={handleNavigation} />
         </Card>

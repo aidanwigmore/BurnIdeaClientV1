@@ -80,7 +80,7 @@ function FaqModal({ faq, faqs, setFaq, handleResetFaq, handleNavigation }: FaqMo
                     color="success"
                     sx={{ margin: '5px' }}
                 >
-                    Edit
+                    <Text text={"Edit"} size={Size.small}/>
                 </Button>
                 <Button
                     onClick={() => handleDelete(faq)}
@@ -88,7 +88,7 @@ function FaqModal({ faq, faqs, setFaq, handleResetFaq, handleNavigation }: FaqMo
                     color="error"
                     sx={{ margin: '5px' }}
                 >
-                    Delete
+                    <Text text={"Delete"} size={Size.small}/>
                 </Button>
             </Box>
         ),
@@ -111,7 +111,7 @@ function FaqModal({ faq, faqs, setFaq, handleResetFaq, handleNavigation }: FaqMo
             {(selectedFaq || newFaq) ? (
                 <>
                     <Box sx={{ width: '100%', textAlign: 'center' }}>
-                        <Text text={selectedFaq?.id ? `Edit FAQ ${selectedFaq.id}` : 'Create FAQ'} />
+                        <Text text={selectedFaq?.id ? `Edit FAQ '${selectedFaq.id}':` : 'Create FAQ:'} size={Size.large}/>
                     </Box>
                     <Box>
                         <FaqForm
@@ -123,7 +123,7 @@ function FaqModal({ faq, faqs, setFaq, handleResetFaq, handleNavigation }: FaqMo
                 </>
             ) : (
                 <Button sx={{ marginLeft: '12px' }} color="success" variant="contained" onClick={() => setNewFaq({ question: '', answer: '', })}>
-                    Create FAQ
+                    <Text text={"New FAQ"} size={Size.small}/>
                 </Button>
             )}
             <Box sx={{ width: '100%', textAlign: 'center', marginTop: '24px' }}>

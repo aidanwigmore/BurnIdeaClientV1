@@ -16,9 +16,11 @@ import Snackbar from '@mui/material/Snackbar';
 import Question from '@mui/icons-material/QuestionAnswer';
 import RttIcon from '@mui/icons-material/Rtt';
 
-import Customer from '../types/Customer';
+import Text from '@materials/Text';
 
 import customTheme from '../theme';
+
+import { Size } from '../types/Size';
 
 interface AdminVerticalAppBarProps {
   setFAQModalOpen: () => void;
@@ -88,27 +90,27 @@ function AdminVerticalAppBar({
         <>
           <Button sx={{ color: 'white', fontSize: '12px', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={handleLogout}>
             <LogoutOutlined sx={{ width: '36px', height: '36px' }} />
-            Log Out
+            <Text text={"Log Out"} size={Size.small}/>
           </Button>
           <Button sx={{ color: 'white', fontSize: '12px', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={handleCustomersModalOpen}>
             <AccountCircleOutlined sx={{ width: '36px', height: '36px' }} />
-            Customers
+            <Text text={"Customers"} size={Size.small}/>
           </Button>
           <Button sx={{ color: 'white', fontSize: '12px', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={handleIdeaModalOpen}>
             <MenuBookIcon sx={{ width: '36px', height: '36px' }} />
-            Ideas
+            <Text text={"Ideas"} size={Size.small}/>
           </Button>
           <Button sx={{ color: 'white', fontSize: '12px', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={handleCategoryModalOpen}>
             <Category sx={{ width: '36px', height: '36px' }} />
-            Categories
+            <Text text={"Categories"} size={Size.small}/>  
           </Button>
           <Button sx={{ color: 'white', fontSize: '12px', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={handleFAQModalOpen}>
             <Question sx={{ width: '36px', height: '36px' }} />
-            FAQ
+            <Text text={"FAQ"} size={Size.small}/>
           </Button>
           <Button sx={{ color: 'white', fontSize: '12px', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={handleAboutModalOpen}>
             <RttIcon sx={{ width: '36px', height: '36px' }} />
-            Content
+            <Text text={"Content"} size={Size.small}/>
           </Button>
         </>
       );
@@ -116,7 +118,7 @@ function AdminVerticalAppBar({
       return (
         <>
           <Button sx={{ color: 'white', fontSize: '12px', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={handleLoginModalOpen} startIcon={<Login sx={{ width: '36px', height: '36px' }} />}>
-            Login
+          <Text text={"Login"} size={Size.small}/>
           </Button>
         </>
       );

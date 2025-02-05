@@ -161,8 +161,8 @@ function IdeaImageCard({ idea, category, renderDescription }: IdeaImageCardProps
                             onChange={() => { }}
                             size="large"
                             readOnly={true}
-                            sx={{marginLeft: '0'}}
-                        />
+                            sx={{marginLeft: '0', color: category?.color || customTheme.palette.primary.dark}}
+                        /> 
                     </Box>
                     <Text size={Size.medium} text={`Created: ${ idea && idea.dateCreated && formatDate(idea.dateCreated.toString()) }`}/>
                 </Box>

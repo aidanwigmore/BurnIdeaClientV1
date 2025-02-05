@@ -3,7 +3,11 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
+import Text from '@materials/Text';
+
 import customTheme from '../theme';
+
+import { Size } from '../types/Size';
 
 interface FormButtonGroupProps {
     actions: (() => void)[];
@@ -38,7 +42,7 @@ function  FormButtonGroup({ actions, texts, icons, colours }: FormButtonGroupPro
                         }}
                     >
                         {icons[index]}
-                        {texts[index]}
+                        <Text text={texts[index]} size={Size.small}/>
                     </Button>
                 ))}
             </Box>

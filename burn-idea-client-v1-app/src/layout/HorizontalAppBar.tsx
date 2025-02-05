@@ -7,7 +7,11 @@ import Toolbar from '@mui/material/Toolbar';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import InfoIcon from '@mui/icons-material/Info';
 
+import Text from '@materials/Text';
+
 import customTheme from '../theme';
+
+import { Size } from '../types/Size';
 
 interface HorizontalAppBarProps {
     handleNavigateFAQ: () => void;
@@ -32,11 +36,11 @@ function HorizontalAppBar({ handleNavigateFAQ, handleNavigateAboutUs }: Horizont
                     <Toolbar>
                         <Button sx={{ color: 'white', fontSize: '12px', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={handleNavigateFAQ}>
                             <HelpOutlineIcon sx={{ width: '36px', height: '36px', marginLeft: 'auto', marginRight: 'auto' }} />
-                            FAQ
+                            <Text text={"FAQ"} size={Size.small}/>
                         </Button>
                         <Button sx={{ color: 'white', fontSize: '12px', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={handleNavigateAboutUs}>
                             <InfoIcon sx={{ width: '36px', height: '36px', marginLeft: 'auto', marginRight: 'auto' }} />
-                            About Us
+                            <Text text={"About Us"} size={Size.small}/>
                         </Button>
                     </Toolbar>
                 </AppBar>

@@ -15,12 +15,14 @@ interface TextProps {
 function Text({ text, color, size, sx }: TextProps) {
     let fontFamily = 'Raleway';
     let fontSize = '36px';
+    let fontWeight = 'normal';
 
     if (size) {
         switch (size) {
           case Size.small:
             fontFamily = 'Raleway Small';
-            fontSize = '16px';
+            fontSize = '12px';
+            fontWeight = 'bold';
             break;
           case Size.medium:
             fontFamily = 'Raleway Medium';
@@ -42,6 +44,7 @@ function Text({ text, color, size, sx }: TextProps) {
                 color: color,
                 fontFamily: fontFamily,
                 fontSize: fontSize,
+                fontWeight: fontWeight,
                 ...sx,
             }}
         >

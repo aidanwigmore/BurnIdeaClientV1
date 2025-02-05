@@ -87,7 +87,7 @@ function AdminIdeaModal({ idea, ideas, setIdea, handleResetIdea, handleNavigatio
                     color="success"
                     sx={{ margin: '5px' }}
                 >
-                    Edit
+                    <Text text={"Edit"} size={Size.small}/>
                 </Button>
                 <Button
                     onClick={() => handleDelete(idea)}
@@ -95,7 +95,7 @@ function AdminIdeaModal({ idea, ideas, setIdea, handleResetIdea, handleNavigatio
                     color="error"
                     sx={{ margin: '5px' }}
                 >
-                    Delete
+                    <Text text={"Delete"} size={Size.small}/>
                 </Button>
             </Box>
         ),
@@ -118,7 +118,7 @@ function AdminIdeaModal({ idea, ideas, setIdea, handleResetIdea, handleNavigatio
             {(selectedIdea || newIdea) ? (
                 <>
                     <Box sx={{ width: '100%', textAlign: 'center' }}>
-                        <Text text={selectedIdea?.id ? `Edit Idea ${selectedIdea.id}` : 'Create Idea'} />
+                        <Text text={selectedIdea?.id ? `Edit Idea '${selectedIdea.id}':` : 'Create Idea:'} />
                     </Box>
                     <Box>
                         <IdeaForm
@@ -130,7 +130,7 @@ function AdminIdeaModal({ idea, ideas, setIdea, handleResetIdea, handleNavigatio
                 </>
             ) : (
                 <Button sx={{ marginLeft: '12px' }} color="success" variant="contained" onClick={() => setNewIdea({ name: '', visible: false, ideaDescription: '', ideaDifficulty: 0, dateCreated: new Date() })}>
-                    Create Idea
+                    <Text size={Size.small} text={"New Idea"} />
                 </Button>
             )}
             <Box sx={{ width: '100%', textAlign: 'center', marginTop: '24px' }}>

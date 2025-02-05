@@ -39,7 +39,7 @@ const CategoryButton = React.forwardRef<HTMLButtonElement, CategoryButtonProps>(
             }}
             onClick={() => {}}
         >
-            <Text text={text}/>
+            <Text text={text} size={Size.large} />
         </Button>
     )
 });

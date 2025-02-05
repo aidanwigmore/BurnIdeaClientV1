@@ -13,9 +13,13 @@ import Login from '@mui/icons-material/Login';
 import LogoutOutlined from '@mui/icons-material/LogoutOutlined';
 import Snackbar from '@mui/material/Snackbar';
 
+import Text from '@materials/Text';
+
 import Customer from '../types/Customer';
 
 import customTheme from '../theme';
+
+import { Size } from '../types/Size';
 
 interface VerticalAppBarProps {
   setAccountModalOpen: () => void;
@@ -83,11 +87,11 @@ function VerticalAppBar({
         <>
           <Button sx={{ color: 'white', fontSize: '12px', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={handleLogout}>
             <LogoutOutlined sx={{ width: '36px', height: '36px', marginLeft: 'auto', marginRight: 'auto' }} />
-            Log Out
+            <Text text={"Log Out"} size={Size.small}/>
           </Button>
           <Button sx={{ color: 'white', fontSize: '12px', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={handleAccountModalOpen}>
             <AccountCircleOutlined sx={{ width: '36px', height: '36px', marginLeft: 'auto', marginRight: 'auto' }} />
-            Account
+            <Text text={"Account"} size={Size.small}/>
           </Button>
         </>
       );
@@ -96,11 +100,11 @@ function VerticalAppBar({
         <>
           <Button sx={{ color: 'white', fontSize: '12px', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={handleLoginOpen}>
             <Login sx={{ width: '36px', height: '36px', marginLeft: 'auto', marginRight: 'auto' }} />
-            Login
+            <Text text={"Login"} size={Size.small}/>
           </Button>
           <Button sx={{ color: 'white', fontSize: '12px', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={handleRegisterOpen}>
             <Register sx={{ width: '36px', height: '36px' }} />
-            Register
+            <Text text={"Register"} size={Size.small}/>
           </Button>
         </>
       );

@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 
 import { Box, FormControlLabel, Button, Collapse } from '@mui/material';
 
+import Text from '@materials/Text';
 import SearchInput from '@materials/SearchInput';
 import FilterDivider from '@materials/FilterDivider';
 import FilterSwitch from '@materials/FilterSwitch';
 
 import customTheme from '../theme';
+
+import { Size } from '../types/Size';
 
 interface FiltersProps {
     context: string;
@@ -62,7 +65,11 @@ function Filters({
                 onChange={handleSearchInputChange || (() => {})}
                 />
             <Button onClick={handleExpand}>
-                {expanded ? 'Collapse Filters' : 'Expand Filters'}
+                {expanded ? (
+                    <Text text={'Collapse Filters'} size={Size.medium}/>
+                ) : (
+                    <Text text={'Expand Filters'} size={Size.medium}/>
+                )}
             </Button>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <Box sx={{
@@ -78,13 +85,14 @@ function Filters({
                     <FormControlLabel
                         control={
                             <FilterSwitch 
-                                checked={showDescription} 
-                                onChange={handleSortNoDescriptionChange} 
+                            checked={showDescription} 
+                            onChange={handleSortNoDescriptionChange} 
                             />
                         }
-                        label="Show Description"
+                        label={''}
                         sx={{color: customTheme.palette.primary.main}}
                     />
+                    <Text text={"Show Description"} size={Size.small} sx={{color: 'white'}}/>
                     <FilterDivider/>
                     <FormControlLabel
                         control={
@@ -93,23 +101,26 @@ function Filters({
                                 onChange={handleSortNoIdeasChange}
                             />
                         }
-                        label="Show Ideas"
+                        label=""
                         sx={{color: customTheme.palette.primary.main}}
                     />
+                    <Text text={"Show Ideas"} size={Size.small} sx={{color: 'white'}}/>
                     <FilterDivider/>
                     <FormControlLabel
                         control={
                             <FilterSwitch onChange={handleSortNewChange} />}
-                        label="Sort by New"
+                        label=""
                         sx={{color: customTheme.palette.primary.main}}
                     />
+                    <Text text={"Sort by New"} size={Size.small} sx={{color: 'white'}}/>
                     <FilterDivider/>
                     <FormControlLabel
                         control={
                             <FilterSwitch onChange={handleSortAlphaBeticalChange} />}
-                        label="Sort Alphabetically"
+                        label=""
                         sx={{color: customTheme.palette.primary.main}}
                     />
+                    <Text text={"Sort Alphabetically"} size={Size.small} sx={{color: 'white'}}/>
                     </Box>
             </Collapse>
           </Box>

@@ -12,7 +12,7 @@ function FilterDivider() {
             sx={{
                 height: {sm: '20px', xs: '10px'},
                 width: {sm: '5px', xs: '5px'},
-                marginLeft: '12px', 
+                marginLeft: '20px', 
                 marginRight: '20px', 
                 borderRadius: '10px'
             }}

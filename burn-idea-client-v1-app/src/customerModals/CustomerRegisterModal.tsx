@@ -7,6 +7,8 @@ import RegisterForm from '@form/RegisterForm';
 
 import Text from '@materials/Text';
 
+import { Size } from '../types/Size';
+
 interface CustomerRegisterModalProps {
     handleNavigation: (url: string | undefined) => void;
 }
@@ -23,7 +25,7 @@ function CustomerRegisterModal({ handleNavigation } : CustomerRegisterModalProps
             }}
         >
             <Box sx={{width: '100%', textAlign: 'center'}}>
-                <Text text={"Register"} />
+                <Text text={"Register"} size={Size.large}/>
             </Box>
             <RegisterForm handleNavigation={handleNavigation}/>
         </Card>

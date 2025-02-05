@@ -70,7 +70,7 @@ function AdminAboutModal({ about, abouts, setAbout, handleResetAbout, handleNavi
             about.id || '',
             <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(about.content || '') }} />,
             about?.visible ? 'True' : 'False',
-            <img src={about.image} alt={"About image"} style={{ width: "50px", height: "50px" }} />,
+            <img src={about.image} alt={"About"} style={{ width: "50px", height: "50px" }} />,
         ],
         actions: (
             <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
@@ -80,7 +80,7 @@ function AdminAboutModal({ about, abouts, setAbout, handleResetAbout, handleNavi
                     color="success"
                     sx={{ margin: '5px' }}
                 >
-                    Edit
+                    <Text text={"Edit"} size={Size.small}/>
                 </Button>
                 <Button
                     onClick={() => handleDelete(about)}
@@ -88,7 +88,7 @@ function AdminAboutModal({ about, abouts, setAbout, handleResetAbout, handleNavi
                     color="error"
                     sx={{ margin: '5px' }}
                 >
-                    Delete
+                    <Text text={"Delete"} size={Size.small}/>
                 </Button>
             </Box>
         ),
@@ -105,13 +105,13 @@ function AdminAboutModal({ about, abouts, setAbout, handleResetAbout, handleNavi
             }}
         >
             <Box sx={{ width: '100%', textAlign: 'center' }}>
-                <Text size={Size.large} text={"Abouts"} />
+                <Text size={Size.large} text={"Content"} />
             </Box>
             <Divider />
             {(selectedAbout || newAbout) ? (
                 <>
                     <Box sx={{ width: '100%', textAlign: 'center' }}>
-                        <Text text={selectedAbout?.id ? `Edit About ${selectedAbout.id}` : 'Create About'} />
+                        <Text text={selectedAbout?.id ? `Edit Content '${selectedAbout.id}':` : 'Create Content:'} size={Size.large}/>
                     </Box>
                     <Box>
                         <AboutForm
@@ -123,7 +123,7 @@ function AdminAboutModal({ about, abouts, setAbout, handleResetAbout, handleNavi
                 </>
             ) : (
                 <Button sx={{ marginLeft: '12px' }} color="success" variant="contained" onClick={() => setNewAbout({ content: '' })}>
-                    Create About
+                    <Text size={Size.small} text={"New Content"} />
                 </Button>
             )}
             <Box sx={{ width: '100%', textAlign: 'center', marginTop: '24px' }}>

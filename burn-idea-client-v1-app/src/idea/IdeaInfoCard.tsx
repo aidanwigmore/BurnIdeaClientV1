@@ -1,10 +1,15 @@
 import React from 'react';
 
-import { Box, Card, Typography } from '@mui/material';
+import { Box, Card } from '@mui/material';
+
+import Text from '@materials/Text';
+import RatingComponent from '@mui/material/Rating';
 
 import customTheme from '../theme';
 
 import Idea from '../types/Idea';
+
+import { Size } from '../types/Size';
 
 interface IdeaInfoCardProps {
     idea: Idea;
@@ -35,63 +40,26 @@ function IdeaInfoCard({ idea }: IdeaInfoCardProps) {
                     marginRight: '12px',
                 }}
             >
-                <Box
-                    sx={{
-
-                    }}
-                >
-                    <Typography
-                        sx={{
-                            color: customTheme.palette.custom.black,
-                            fontFamily: 'CustomCategoryFont, sans-serif',
-                            fontSize: 25,
-                            marginLeft: 'auto',
-                            marginRight: 'auto',
-                        }}
-                    >
-                        {"Idea Details"}
-                    </Typography>
-                    <Typography
-                        sx={{
-                            color: customTheme.palette.custom.black,
-                            fontFamily: 'sans-serif',
-                            fontSize: 15,
-                            marginLeft: 'auto',
-                            marginRight: 'auto',
-                        }}
-                    >
-                        {`${idea.ideaDescription}`}
-                    </Typography>
+                <Box>
+                    <Text text={`'${idea.name}' Details:`} size={Size.large}/>
+                    <Text text={`${idea.ideaDescription}`} size={Size.medium}/>
                 </Box>
                 <Box
                     sx={{
                         width: '99%',
                         display: 'inline-flex',
-                        flexDirection: 'column',
+                        flexDirection: 'row',
                     }}
                 >
-                    <Typography
-                        sx={{
-                            color: customTheme.palette.custom.black,
-                            fontFamily: 'CustomCategoryFont, sans-serif',
-                            fontSize: 25,
-                            marginLeft: 'auto',
-                            marginRight: 'auto',
-                        }}
-                    >
-                        {"Difficulty"}
-                    </Typography>
-                    <Typography
-                        sx={{
-                            color: customTheme.palette.custom.black,
-                            fontFamily: 'sans-serif',
-                            fontSize: 15,
-                            marginLeft: 'auto',
-                            marginRight: 'auto',
-                        }}
-                    >
-                        {`${idea.ideaDifficulty}`}
-                    </Typography>
+                    <Text text={"Dificulty: "} size={Size.medium}/>
+                    <RatingComponent
+                        name="rating"
+                        value={idea?.ideaDifficulty}
+                        onChange={() => { }}
+                        size="large"
+                        readOnly={true}
+                        sx={{marginLeft: '0', color: customTheme.palette.primary.dark}}
+                    />
                 </Box>
             </Box>
         </Card >

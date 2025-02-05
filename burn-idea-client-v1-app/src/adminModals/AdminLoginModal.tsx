@@ -7,6 +7,8 @@ import AdminLoginForm from '@form/AdminLoginForm';
 
 import Text from '@materials/Text';
 
+import { Size } from '../types/Size';
+
 interface AdminLoginModalProps {
     handleNavigation: (url: string | undefined) => void;
 }
@@ -23,7 +25,7 @@ function AdminLoginModal({ handleNavigation }: AdminLoginModalProps) {
             }}
         >
             <Box sx={{ width: '100%', textAlign: 'center' }}>
-                <Text text={"Log In"} />
+                <Text text={"Log In"} size={Size.large}/>
             </Box>
             <AdminLoginForm handleNavigation={handleNavigation} />
         </Card>
