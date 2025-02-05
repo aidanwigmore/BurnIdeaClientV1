@@ -9,6 +9,7 @@ import Edit from '@mui/icons-material/Edit';
 import Save from '@mui/icons-material/CheckOutlined';
 import Switch from '@mui/material/Switch';
 
+import TextArea from '@materials/TextArea';
 import Text from '@materials/Text';
 import CustomInput from '@materials/CustomInput';
 import FormButtonGroup from '@materials/FormButtonGroup';
@@ -55,7 +56,7 @@ function AboutForm({ about, handleResetAbout, handleCancel }: AboutFormProps) {
         setEdit(!edit);
     }, [setEdit, edit]);
 
-    const handleContentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleContentChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setNewAbout(prevAbout => ({
             ...prevAbout,
             content: event.target.value
@@ -116,7 +117,6 @@ function AboutForm({ about, handleResetAbout, handleCancel }: AboutFormProps) {
             <Box
                 sx={{
                     width: '80%', 
-                    backgroundColor: customTheme.palette.primary.light,
                     padding: '10px',
                     borderRadius: '10px',
                     marginLeft: 'auto',
@@ -124,12 +124,11 @@ function AboutForm({ about, handleResetAbout, handleCancel }: AboutFormProps) {
                     marginBottom: '12px',
                 }}
             >
-                        <CustomInput label={"Content"} value={newAbout.content || (about?.content || '')} onChange={handleContentChange} error={""} />
+                    <TextArea label={"Content"} value={newAbout.content || (about?.content || '')} onChange={handleContentChange} error={""} />
             </Box>
             <Box
                 sx={{
                     width: '80%', 
-                    backgroundColor: customTheme.palette.primary.light,
                     padding: '10px',
                     borderRadius: '10px',
                     marginLeft: 'auto',

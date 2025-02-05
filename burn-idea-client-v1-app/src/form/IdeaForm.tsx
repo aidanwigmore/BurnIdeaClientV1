@@ -7,11 +7,12 @@ import Box from '@mui/material/Box';
 import Cancel from '@mui/icons-material/Cancel';
 import Edit from '@mui/icons-material/Edit';
 import Save from '@mui/icons-material/CheckOutlined';
+import Switch from '@mui/material/Switch';
 
 import Text from '@materials/Text';
 import CustomInput from '@materials/CustomInput';
 import FormButtonGroup from '@materials/FormButtonGroup';
-import Switch from '@mui/material/Switch';
+import TextArea from '@materials/TextArea';
 
 import customTheme from '../theme';
 
@@ -90,7 +91,7 @@ function IdeaForm({ idea, handleResetIdea, handleCancel }: IdeaFormProps) {
         }
     };
 
-    const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleDescriptionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setNewIdea(prevIdea => ({
             ...prevIdea,
             ideaDescription: event.target.value
@@ -165,13 +166,12 @@ function IdeaForm({ idea, handleResetIdea, handleCancel }: IdeaFormProps) {
                 <Box
                     sx={{
                         width: '80%', 
-                        backgroundColor: customTheme.palette.primary.light,
                         padding: '10px',
                         borderRadius: '10px',
                     }}
                 >
                     <>
-                        <CustomInput label={"Description"} value={newIdea.ideaDescription || (idea?.ideaDescription || '')} onChange={handleDescriptionChange} error={""} />
+                        <TextArea label={"Description"} value={newIdea.ideaDescription || (idea?.ideaDescription || '')} onChange={handleDescriptionChange} error={""} />
                     </>
                 </Box>
             </Box>

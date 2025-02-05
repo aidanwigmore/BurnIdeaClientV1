@@ -13,6 +13,7 @@ import Minus from '@mui/icons-material/Remove';
 import Plus from '@mui/icons-material/Add';
 import Save from '@mui/icons-material/CheckOutlined';
 
+import TextArea from '@materials/TextArea';
 import Text from '@materials/Text';
 import CustomInput from '@materials/CustomInput';
 import FormButtonGroup from '@materials/FormButtonGroup';
@@ -70,7 +71,7 @@ function CategoryForm({ category, ideas, handleResetCategory, handleCancel }: Ca
         }));
     };
 
-    const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleDescriptionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setNewCategory(prevCategory => ({
             ...prevCategory,
             categoryDescription: event.target.value
@@ -172,13 +173,12 @@ function CategoryForm({ category, ideas, handleResetCategory, handleCancel }: Ca
                 <Box
                     sx={{
                         width: '80%', 
-                        backgroundColor: customTheme.palette.primary.light,
                         padding: '10px',
                         borderRadius: '10px',
                     }}
                 >
                     <>
-                        <CustomInput label={"Description"} value={newCategory.categoryDescription || (category?.categoryDescription || '')} onChange={handleDescriptionChange} error={""} />
+                        <TextArea label={"Description"} value={newCategory.categoryDescription || (category?.categoryDescription || '')} onChange={handleDescriptionChange} error={""} />
                     </>
                 </Box>
             </Box>

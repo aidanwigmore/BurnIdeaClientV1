@@ -8,6 +8,7 @@ import Cancel from '@mui/icons-material/Cancel';
 import Edit from '@mui/icons-material/Edit';
 import Save from '@mui/icons-material/CheckOutlined';
 
+import TextArea from '@materials/TextArea';
 import Text from '@materials/Text';
 import CustomInput from '@materials/CustomInput';
 import FormButtonGroup from '@materials/FormButtonGroup';
@@ -54,14 +55,14 @@ function FaqForm({ faq, handleResetFaq, handleCancel }: FaqFormProps) {
         setEdit(!edit);
     }, [setEdit, edit]);
 
-    const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleQuestionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setNewFaq(prevFaq => ({
             ...prevFaq,
             question: event.target.value
         }));
     };
 
-    const handleAnswerChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleAnswerChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setNewFaq(prevFaq => ({
             ...prevFaq,
             answer: event.target.value
@@ -117,7 +118,6 @@ function FaqForm({ faq, handleResetFaq, handleCancel }: FaqFormProps) {
             <Box
                 sx={{
                     width: '80%', 
-                    backgroundColor: customTheme.palette.primary.light,
                     padding: '10px',
                     borderRadius: '10px',
                     marginLeft: 'auto',
@@ -125,20 +125,19 @@ function FaqForm({ faq, handleResetFaq, handleCancel }: FaqFormProps) {
                     marginBottom: '12px',
                 }}
             >
-                <CustomInput label={"Question"} value={newFaq.question || (newFaq.question)} onChange={handleQuestionChange} error={""} />
-            </Box>
+                    <TextArea label={"Question"} value={newFaq.question || (faq?.question || '')} onChange={handleQuestionChange} error={""} />
+                </Box>
             <Box
                 sx={{
                     width: '80%', 
-                    backgroundColor: customTheme.palette.primary.light,
                     padding: '10px',
                     borderRadius: '10px',
                     marginLeft: 'auto',
                     marginRight: 'auto',
                 }}
             >
-                <CustomInput label={"Content"} value={newFaq.answer || (newFaq.answer)} onChange={handleAnswerChange} error={""} />
-            </Box>
+                    <TextArea label={"Answer"} value={newFaq.answer || (faq?.answer || '')} onChange={handleAnswerChange} error={""} />
+                </Box>
             <Box
                 sx={{
                     marginTop: '10px',
