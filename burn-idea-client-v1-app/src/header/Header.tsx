@@ -57,7 +57,7 @@ function Header({ modalOverLayOpen, setModalOverLayOpen, admin }: HeaderProps) {
         </Box>
         <Box sx={{display: 'inline-flex', flexDirection: 'row', justifyContent: 'flex-end', width: '99%', paddingRight: '12px' }}>
           { customer && customer.givenName &&
-            <Text text={`Welcome, ${customer.givenName}.`} size={Size.medium}/>
+            <Text text={`Welcome, ${customer.givenName}.`} size={Size.small}/>
           }
         </Box>
       </Button>
