@@ -58,9 +58,9 @@ function AboutContent({ abouts }: AboutContentProps) {
                                         backgroundColor: 'white',
                                         borderRadius: '12px',
                                     }}
-                                    >
+                                >
                                     <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(about.content || '') }} />
-                                    <img style={{width: '50%'}} src={about.image} alt={"About image"} />
+                                    <img style={{width: '50%'}} src={about.image} alt={"Loading..."} />
                                 </ListItem>
                             ))}
                         </List>

@@ -80,12 +80,11 @@ function FAQContent({ faqs }: FAQContentProps) {
                                 >
                                     <Button sx={{ color: 'secondary.main', fontSize: '12px', display: 'flex', flexDirection: 'row' }} onClick={() => handleToggleQuestion(index)} startIcon={<ExpandIcon sx={{ width: '36px', height: '36px' }} />}>
                                         <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(faq.question || '') }} />
-                                        {/* <Text sx={{ width: '99%', textAlign: 'center' }} size={Size.medium} text={`${faq.question}?`} /> */}
                                     </Button>
                                     {expandedQuestion === index && (
                                         <>
-                                        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(faq.answer || '') }} />
-                                        <img src={faq.image} alt={"Faq image"} />
+                                            <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(faq.answer || '') }} />
+                                            <img style={{width: '50%'}} src={faq.image} alt={"Loading"} />
                                         </>
                                     )}
                                 </ListItem>
