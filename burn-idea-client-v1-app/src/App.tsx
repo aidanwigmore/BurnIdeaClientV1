@@ -8,7 +8,7 @@ import { IdeaProvider } from '@context/IdeaContext';
 import { CategoryProvider } from '@context/CategoryContext';
 import { AboutProvider } from '@context/AboutContext';
 import { FaqProvider } from '@context/FAQContext';
-
+import { SidebarProvider } from '@context/SidebarContext';
 // import { MantineProvider } from '@mantine/core';
 import { ThemeProvider } from '@mui/material/styles';
 
@@ -29,15 +29,17 @@ function App() {
             <IdeaProvider>
               <AboutProvider>
                 <FaqProvider>
-                  <Router>
-                    <Routes>
-                      <Route path="/" element={<CustomerHomePage />} />
-                      <Route path="/admin" element={<AdminHomePage />} />
-                      <Route path="/ideas/:id" element={<CustomerIdeaPage />} />
-                      <Route path="/faq" element={<FAQPage />} />
-                      <Route path="/about-us" element={<AboutUsPage />} />
-                    </Routes>
-                  </Router>
+                  <SidebarProvider>
+                    <Router>
+                      <Routes>
+                        <Route path="/" element={<CustomerHomePage />} />
+                        <Route path="/admin" element={<AdminHomePage />} />
+                        <Route path="/ideas/:id" element={<CustomerIdeaPage />} />
+                        <Route path="/faq" element={<FAQPage />} />
+                        <Route path="/about-us" element={<AboutUsPage />} />
+                      </Routes>
+                    </Router>
+                  </SidebarProvider>
                 </FaqProvider>
               </AboutProvider>
             </IdeaProvider>

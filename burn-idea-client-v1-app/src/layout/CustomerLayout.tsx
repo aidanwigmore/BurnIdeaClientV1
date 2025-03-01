@@ -58,10 +58,15 @@ function CustomerLayout({
     }, [navigate]);
 
     const [bannerDisplayed, setBannerDisplayed] = useState(true);
+    const [showVerticalAppbar, setShowVerticalAppbar] = useState(true);
 
     const handleCloseBanner = useCallback(() => {
         setBannerDisplayed(false);
     }, [setBannerDisplayed]);
+
+    const handleShowVerticalAppbar = useCallback(() => {
+        setShowVerticalAppbar(!showVerticalAppbar);
+    }, [showVerticalAppbar]);
 
     const renderModal = useCallback(() => {
         if (accountModalOpen) {
@@ -114,10 +119,11 @@ function CustomerLayout({
                         "vertSideBar content content"
                         "footer footer footer"
                         `,
-                        gridTemplateColumns: '100px 1fr 1fr',
+                        transition: 'grid-template-columns 0.2s ease-in-out',
+                        gridTemplateColumns: showVerticalAppbar ? '100px 1fr 1fr' : '50px 1fr 1fr',
                         gridTemplateRows: '1fr 1fr 1fr 1fr 1fr 1fr',
                         height: '100vh',
-                        gap: '12px',
+                        gap: '8px',
                     }}
                 >
                     <Box sx={{
@@ -133,6 +139,8 @@ function CustomerLayout({
                             setAccountModalOpen={handleAccountModalOpen}
                             setLoginModalOpen={handleLoginModalOpen}
                             setRegisterModalOpen={handleRegisterModalOpen}
+                            showVerticalAppbar={showVerticalAppbar}
+                            handleShowVerticalAppbar={handleShowVerticalAppbar}
                         />
                     </Box>
                     <Box sx={{ gridArea: 'horiSideBar' }}>

@@ -9,6 +9,8 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Register from '@mui/icons-material/PersonAdd';
+import CloseIcon from '@mui/icons-material/Close';
+import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import Login from '@mui/icons-material/Login';
 import LogoutOutlined from '@mui/icons-material/LogoutOutlined';
 import Snackbar from '@mui/material/Snackbar';
@@ -25,12 +27,16 @@ interface VerticalAppBarProps {
   setAccountModalOpen: () => void;
   setLoginModalOpen: () => void;
   setRegisterModalOpen: () => void;
+  showVerticalAppbar: boolean;
+  handleShowVerticalAppbar: (value: boolean) => void;
 }
 
 function VerticalAppBar({
   setAccountModalOpen,
   setLoginModalOpen,
   setRegisterModalOpen,
+  showVerticalAppbar,
+  handleShowVerticalAppbar,
 }: VerticalAppBarProps) {
 
   const navigate = useNavigate();
@@ -63,10 +69,11 @@ function VerticalAppBar({
     setSnackbarMessage('Logging out. Please refresh your browser.');
     setSnackbarOpen(true);
     setSeverity('info');
+    handleShowVerticalAppbar(true);
     setTimeout(() => {
       navigate('/');
     }, 2000);
-  }, [navigate]);
+  }, [navigate, handleShowVerticalAppbar, logout]);
 
   const handleLogin = useCallback(async (email: string, password: string) => {
     try {
@@ -109,21 +116,45 @@ function VerticalAppBar({
         </>
       );
     }
-  }, [customer, token, handleAccountModalOpen, handleLoginOpen, handleLogout, handleLogin, handleRegisterOpen]);
+  }, [customer, token, handleAccountModalOpen, handleLoginOpen, handleLogout, handleRegisterOpen]);
+
+  const renderShowVerticalAppbarButton = useCallback(() => {
+    if (showVerticalAppbar) {
+      return (
+        <>
+          {renderLoginButtons()}
+          <Button sx={{ color: 'white', fontSize: '12px', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={() => handleShowVerticalAppbar(false)}>
+            <CloseIcon sx={{ width: '36px', height: '36px', marginLeft: 'auto', marginRight: 'auto' }} />
+          </Button>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Button sx={{ color: 'white', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={() => handleShowVerticalAppbar(true)}>
+            <OpenInFullIcon sx={{ width: '36px', height: '36px', marginLeft: 'auto', marginRight: 'auto' }} />
+          </Button>
+        </>
+      );
+    }
+  }, [handleShowVerticalAppbar, renderLoginButtons, showVerticalAppbar]);
 
   return (
-    <Box sx={{ flexDirection: 'column', flexGrow: 1, height: '100%' }}>
+    <Box 
+      sx={{ 
+        flexDirection: 'column', flexGrow: 1, height: '100%',
+      }}>
       <AppBar
         sx={{
           background: `linear-gradient(180deg, #000000 0%, ${customTheme.palette.secondary.main} 48%, ${customTheme.palette.secondary.main} 100vw)`,
-          width: '100%',
+          width: '99%',
           height: '100%',
           borderRadius: '15px',
         }}
         position="static"
       >
         {
-          renderLoginButtons()
+          renderShowVerticalAppbarButton()
         }
       </AppBar>
       <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
