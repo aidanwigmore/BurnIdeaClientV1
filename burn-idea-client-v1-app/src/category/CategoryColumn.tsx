@@ -34,7 +34,7 @@ function CategoryColumn({ renderDescription, renderHeader, id, name, ideas, cate
                 {renderDescription === true && (
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px', backgroundColor: customTheme.palette.secondary.main, borderRadius: '15px', marginBottom: '12px', marginLeft: 'auto', marginRight: 'auto' }}>
                         <Box sx={{ display: 'flex', flexDirection: 'row', backgroundColor: customTheme.palette.secondary.main, borderRadius: '15px', marginRight: 'auto', overflow: 'hidden', flexWrap: 'wrap', marginLeft: 'auto' }}>
-                            <Box sx={{ marginLeft: 'auto', marginRight: 'auto' }}>
+                            <Box sx={{ marginLeft: 'auto', marginRight: 'auto', textAlign: 'center'}}>
                                 <div style={{color: 'white'}} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(category?.categoryDescription || '') }} />
                             </Box>
                         </Box>

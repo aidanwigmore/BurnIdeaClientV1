@@ -16,6 +16,7 @@ import AdminLoginModal from '@adminModals/AdminLoginModal';
 import AdminAboutModal from '@adminModals/AdminAboutModal';
 import FaqModal from '@adminModals/FaqModal';
 import Body from '@layout/Body';
+import AdminCustomersModal from '@adminModals/AdminCustomersModal';
 
 import Category from '../types/Category';
 import Customer from '../types/Customer';
@@ -163,17 +164,32 @@ function AdminLayout({
                     handleNavigation={handleAboutModalOpen}
                 />
             )
+        } else if (customersModalOpen) {
+            return (
+                <AdminCustomersModal
+                    customers={customers ?? null}
+                    handleNavigation={handleCustomersModalOpen}
+                />
+            )
         }
     }, [
-        customers, ideas, idea, category, categories, abouts, about,
-        handleResetIdea, handleResetCategory, setCategory,
-        setIdea, setFaq, faq, 
-        faqModalOpen,
-        customersModalOpen,
-        ideaModalOpen, aboutsModalOpen,
-        categoryModalOpen, adminLoginModalOpen,
-        handleCustomersModalOpen, handleAboutModalOpen,
-        handleIdeaModalOpen, handleCategoryModalOpen, handleAdminLoginModalOpen,
+        customers, 
+        customersModalOpen, handleCustomersModalOpen,
+        ideas, idea, 
+        ideaModalOpen, handleIdeaModalOpen,
+        handleResetIdea, setIdea, 
+        categories, category, 
+        categoryModalOpen, handleCategoryModalOpen, 
+        handleResetCategory, setCategory,
+        abouts, about,
+        aboutsModalOpen, handleAboutModalOpen,
+        handleResetAbout, setAbout,
+        faqs, faq, 
+        faqModalOpen, handleFaqModalOpen,
+        setFaq, 
+        handleResetFaq,
+        adminLoginModalOpen,
+        handleAdminLoginModalOpen,
     ]);
 
     return (

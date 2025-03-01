@@ -11,7 +11,7 @@ interface AuthContextProps {
   register: (name: string, email: string, password: string, givenName: string, phoneNumber: string, subscribedToNewsletter: boolean, smsNotifications: boolean, emailNotifications: boolean) => Promise<void>;
   logout: () => void;
   fetchCustomerDetails: () => Promise<void>;
-  updateCustomerDetails: (updatedCustomer: Partial<Customer>) => Promise<void>;
+  updateCustomerDetails: (id: string, data: Customer) => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthContextProps | undefined>(undefined);
@@ -58,7 +58,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const register = async (name: string, email: string, password: string, givenName: string, phoneNumber: string, subscribedToNewsletter: boolean, smsNotifications: boolean, emailNotifications: boolean) => {
     try {
-      const response = await axios.post<{ token: string }>(`${process.env.REACT_APP_API_BASE}/api/customers/register/`, 
+      await axios.post<{ token: string }>(`${process.env.REACT_APP_API_BASE}/api/customers/register/`, 
         { 
           name, email, password, 
           givenName,
@@ -67,8 +67,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           smsNotifications,
           emailNotifications
         });
-      localStorage.setItem('token', response.data.token);
-      setToken(response.data.token);
+      //if the user is an admin, then don't receive the token
+      // below contains a quality of life measure for viewers, 
+      // so they don't need to register and then login. 
+      // Probably good considering we don't know if the email 
+      // is correct:
+      // localStorage.setItem('token', response.data.token);
+      // setToken(response.data.token);
       await fetchCustomerDetails();
     } catch (err) {
       setError('Registration failed');
@@ -94,9 +99,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
-  const updateCustomerDetails = async (updatedCustomer: Partial<Customer>) => {
+  const updateCustomerDetails = async (id: string, data: Partial<Customer>) => {
     try {
-      const response = await axios.put<Customer>(`${process.env.REACT_APP_API_BASE}/api/customers/me/`, updatedCustomer, {
+      const response = await axios.put<Customer>(`${process.env.REACT_APP_API_BASE}/api/customers/${id}/`, data, {
         headers: { 'Authorization': `Token ${token}` }
       });
       setCustomer(response.data);

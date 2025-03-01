@@ -41,11 +41,14 @@ function Text({ text, color, size, sx }: TextProps) {
         <Typography
             color={customTheme.palette.custom.white}
             sx={{
-                color: color,
-                fontFamily: fontFamily,
-                fontSize: fontSize,
-                fontWeight: fontWeight,
-                ...sx,
+              color: color,
+              fontFamily: fontFamily,
+              fontSize: {
+                  xs: size === Size.large ? '24px' : fontSize, // Smaller font size for mobile
+                  sm: fontSize, // Default font size for larger screens
+              },
+              fontWeight: fontWeight,
+              ...sx,
             }}
         >
             {text}
