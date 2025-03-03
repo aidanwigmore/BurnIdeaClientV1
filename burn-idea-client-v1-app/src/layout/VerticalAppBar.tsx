@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@context/AuthContext';
@@ -9,8 +9,8 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Register from '@mui/icons-material/PersonAdd';
-import CloseIcon from '@mui/icons-material/Close';
-import OpenInFullIcon from '@mui/icons-material/OpenInFull';
+import ChevronRight from '@mui/icons-material/ChevronLeft';
+import ChevronLeft from '@mui/icons-material/ChevronRight';
 import Login from '@mui/icons-material/Login';
 import LogoutOutlined from '@mui/icons-material/LogoutOutlined';
 import Snackbar from '@mui/material/Snackbar';
@@ -124,7 +124,7 @@ function VerticalAppBar({
         <>
           {renderLoginButtons()}
           <Button sx={{ color: 'white', fontSize: '12px', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={() => handleShowVerticalAppbar(false)}>
-            <CloseIcon sx={{ width: '36px', height: '36px', marginLeft: 'auto', marginRight: 'auto' }} />
+            <ChevronRight sx={{ width: '36px', height: '36px', marginLeft: 'auto', marginRight: 'auto' }} />
           </Button>
         </>
       );
@@ -132,7 +132,7 @@ function VerticalAppBar({
       return (
         <>
           <Button sx={{ color: 'white', display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginLeft: 'auto', marginRight: 'auto' }} onClick={() => handleShowVerticalAppbar(true)}>
-            <OpenInFullIcon sx={{ width: '36px', height: '36px', marginLeft: 'auto', marginRight: 'auto' }} />
+            <ChevronLeft sx={{ width: '36px', height: '36px', marginLeft: 'auto', marginRight: 'auto' }} />
           </Button>
         </>
       );
